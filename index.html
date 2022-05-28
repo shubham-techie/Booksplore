@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Booksplore - Learn more about your books</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/styles/style.css">
+
+
+    <script src="/static/js/SearchString.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row d-flex justify-content-center py-3">
+            <img src="/static/images/book.png" class="responsive">
+            <div class="d-flex align-items-center">
+                <h3 class="align-middle title">Booksplore</h3>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <!--Select a Book-->
+            <div class="col-md-8">
+                <div class="card">
+                    <h5 class="card-header">Select a Book</h5>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="#"
+                                            onclick="loadBook('Eat_that_frog.txt', 'Eat That Frog - 21 Great Ways To Stop Procrastinating')">
+                                            Eat That Frog - 21 Great Ways To Stop Procrastinating</a>
+                                    </li>
+
+
+                                    <li><a href="#" onclick="loadBook('atomic-habits.txt', 'Atomic Habits')">Atomic
+                                            Habits</a>
+                                    </li>
+
+                                    <li><a href="#"
+                                            onclick="loadBook('No-More-Mr.-Nice-Guy.txt', 'No More Mr.Nice Guy')">
+                                            No More Mr.Nice Guy</a>
+                                    </li>
+
+                                    <li><a href="#"
+                                            onclick="loadBook('cant-hurt-me-master-your-mind.txt', 'Cant Hurt me, Master your Mind')">Cant
+                                            Hurt me, Master your Mind</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Search Widget-->
+            <div class="col-md-4">
+                <div class="card">
+                    <h5 class="card-header">Search</h5>
+                    <div class="card-body">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="keyword" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-secondary" type="button" onClick="markText()">Search</button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-footer" id="searchstats">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+
+            <!--Main Content area-->
+            <div class="col-md-8">
+
+                <div class="card my-4">
+                    <h3 class="card-header" id="fileName">
+                        Book Title
+                    </h3>
+
+                    <div class="card-body">
+                        <div class="displayBox scroll-box" id="fileContent">
+                            Book Content...
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!--Sidebar Content-->
+            <div class="col-md-4">
+
+
+                <!--Most used Words-->
+                <div class="card my-4">
+                    <h5 class="card-header">Most Used Words</h5>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="list-unstyled mb-0" id="mostUsed">
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Least used Words-->
+                <div class="card my-4">
+                    <h5 class="card-header">Least Used Words</h5>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="list-unstyled mb-0" id="leastUsed">
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Documents Stats-->
+                <div class="card my-4">
+                    <h5 class="card-header">Documents Stats</h5>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="list-unstyled mb-0" id="doc-stats">
+                                    <li id="docLength"></li>
+                                    <li id="wordCount"></li>
+                                    <li id="charCount"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <footer id="sticky-footer" class="flex-shrink-0 py-4">
+        <div class="container text-center font-italic">
+            Made with 🧡 by <a href="https://github.com/shubham-techie"
+                class="text-reset"><strong>shubham-techie</strong></a>
+        </div>
+    </footer>
+
+
+    <script id="template-ul-items" type="text/template">
+        <li>
+            {{val}}
+        </li>
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

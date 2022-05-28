@@ -1,0 +1,45 @@
+body {
+    background: #59C173;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #5D26C1, #a17fe0, #59C173);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #5D26C1, #a17fe0, #59C173);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.title {
+    font-weight: 500;
+    font-family: 'Righteous', cursive;
+
+}
+
+.responsive {
+    max-width: 10%;
+    height: auto;
+}
+
+img {
+    /* padding:15px; */
+}
+
+.displayBox {
+    width: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:gray;
+}
+
+.scroll-box {
+    height: 508px;
+    padding: 1rem;
+    overflow: auto;
+}
+
+mark{
+    background-color:rgb(31, 192, 77);
+    color:white;
+}
+
+footer{
+    background-color: #f1d0d0;
+}
